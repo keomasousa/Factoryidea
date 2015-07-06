@@ -4,7 +4,7 @@ class ClassificationsController < ApplicationController
   # GET /classifications
   # GET /classifications.json
   def index
-    @classifications = Classification.all
+    @classifications = Classification.page(params[:page]).per(10)
   end
 
   # GET /classifications/1
@@ -74,3 +74,4 @@ class ClassificationsController < ApplicationController
 
 
 end
+
