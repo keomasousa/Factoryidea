@@ -1,0 +1,8 @@
+<%= simple_form_for @classification, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@classification[:name]) %>
+
+  <%= f.button :submit, :class => 'bt btn-primary btn-xs pull-right' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                classifications_path, :class => 'btn btn-default btn-xs pull-right' %>
+<% end %>
