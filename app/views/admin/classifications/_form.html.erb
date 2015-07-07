@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @classification] do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@classification[:name]) %>
+    <%= f.button :submit, :class => 'btn-primary pull-left' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                classifications_path, :class => 'btn btn-default pull-left' %>
+<% end %>
