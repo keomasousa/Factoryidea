@@ -4,7 +4,7 @@ class Admin::ClassificationsController < ApplicationController
   # GET /admin/classifications
   # GET /admin/classifications.json
   def index
-    @classifications = Classification.all
+    @classifications = Classification.page(params[:page]).per(10)
   end
 
   # GET /admin/classifications/1
@@ -42,7 +42,7 @@ class Admin::ClassificationsController < ApplicationController
   def update
     respond_to do |format|
       if @classification.update(admin_classification_params)
-        format.html { redirect_to @classification, notice: 'Classification was successfully updated.' }
+        format.html { redirect_to [:admin, @classification], notice: 'Classification was successfully updated.' }
         format.json { render :show, status: :ok, location: @classification }
       else
         format.html { render :edit }
