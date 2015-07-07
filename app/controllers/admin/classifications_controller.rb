@@ -69,6 +69,6 @@ class Admin::ClassificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_classification_params
-      params[:admin_classification]
+      params.require(:classification).permit(:name)
     end
 end
