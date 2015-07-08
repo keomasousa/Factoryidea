@@ -11,7 +11,7 @@
     </div>
   <% end %>
     <%= Classification.all.size -%>
-    <%= f.association :classification %>
+    <%= f.association :classification, prompt: 'Select one classification' %>
       <div class="field">
         <%= f.input :name %><br>
         <!--<%= f.text_field :name %>-->
