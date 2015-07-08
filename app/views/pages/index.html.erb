@@ -2,21 +2,15 @@
 <div class="col-md-8">
   <% @ideas.each do |idea| %>
       <%= content_tag :h2, link_to(idea.name, idea) -%>
+      <%= content_tag :h2, link_to(idea.description, idea) -%></p>
   <p class="lead">
     Por <a href="#"><%= idea.user.email -%></a>
   </p>
   <p><span class="glyphicon glyphicon-time"></span> Postado <%=l idea.created_at, format: :basic  -%> </p>
   <hr>
-  <!--
-  <img class="img-responsive" src="http://lorempixel.com/900/300/technics/Apply/" alt="">
-  <hr>
-  -->
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-  <a class="btn btn-primary" href="post.html">Detalhes <span class="glyphicon glyphicon-chevron-right"></span></a>
 
   <hr>
     <% end %>
-
   <!-- Paginação-->
   <ul class="pager">
     <li class="previous">

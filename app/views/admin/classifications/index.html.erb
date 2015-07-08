@@ -1,6 +1,12 @@
 <%- model_class = Classification -%>
 <div class="page-header">
   <%= link_to t('.new', :default => t("helpers.links.new")), new_admin_classification_path, :class => 'btn btn-primary pull-right' %>
+        <li><a href=""><%= current_user.email -%></a> </li>
+        <li>
+          <%= link_to destroy_user_session_path, :method => Devise.sign_out_via do %>
+              <i class="fa fa-power-off"></i> Sair
+          <% end %>
+          </li>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
