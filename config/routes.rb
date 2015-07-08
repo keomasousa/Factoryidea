@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
+
+
+
+  post "/votar-na-ideia" => 'high_scores#votar', as: :votar_na_ideia
+
+
+  devise_for :users
+
+  
   root 'pages#index'
   resources :high_scores
   resources :ideas
   resources :classifications
-  devise_for :users
+
   namespace :admin do
     root 'classifications#index'
     resources :classifications
   end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

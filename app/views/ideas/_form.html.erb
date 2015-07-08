@@ -13,6 +13,7 @@
     <%= Classification.all.size -%>
     <%= f.association :classification, prompt: 'Select one classification' %>
       <div class="field">
+        <%= f.input :user_id, as: :hidden,  input_html: {value: current_user.id} %><br>
         <%= f.input :name %><br>
         <!--<%= f.text_field :name %>-->
       </div>
@@ -20,10 +21,7 @@
         <%= f.input :description, rows: 10 %><br>
         <!--<%= f.text_area :description, rows: 10 %>-->
       </div>
-      <div class="field">
-        <%= f.input :user_id %><br>
-        <!--<%= f.text_field :user_id %>-->
-    </div>
+
 
   <div class="form-actions">
     <%= f.button :submit %>

@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>Classification:</strong>
+  <%= @idea.classification.name %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -10,15 +13,36 @@
   <%= @idea.description %>
 </p>
 
-<p>
-  <strong>Classification:</strong>
-  <%= @idea.classification %>
-</p>
 
 <p>
   <strong>User:</strong>
-  <%= @idea.user %>
+  <%= @idea.user.email %>
 </p>
+
+<p>
+  <strong>Quantidade de Votos</strong>
+  <%= HighScore.where(idea_id: @idea.id).size %>
+</p>
+<p>
+  <strong>Média de Votos</strong>
+  <%= HighScore.where(idea_id: @idea.id).average(:vote).to_i %>
+</p>
+
+<fieldset>
+	<legend>Votar</legend>
+	<%= simple_form_for HighScore.new, url: votar_na_ideia_path do |f| %>
+	  <%= f.input_field :user_id, as: :hidden, value: current_user.id %>
+	  <%= f.input_field :idea_id, as: :hidden, value: @idea.id %>
+	  <%= f.input :vote, as: :radio_buttons, collection: HighScore::NOTAS %>
+	  <div class="form-actions">
+	    <%= f.submit 'Votar', class: 'btn btn-primary' %>
+	  </div>
+	<% end %>
+</fieldset>
+
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>
+
+
+

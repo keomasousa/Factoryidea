@@ -61,6 +61,18 @@ class HighScoresController < ApplicationController
     end
   end
 
+  def votar
+    @parametros_que_vem_do_formulario = params
+    HighScore.create(high_score_params)
+    # HighScore.create(
+    #   user_id: @parametros_que_vem_do_formulario[:high_score][:user_id],
+    #   idea_id: @parametros_que_vem_do_formulario[:high_score][:idea_id],
+    #   vote:    @parametros_que_vem_do_formulario[:high_score][:vote],
+    # )
+
+    redirect_to idea_path(params[:high_score][:idea_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_high_score

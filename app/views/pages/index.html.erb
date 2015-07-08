@@ -1,11 +1,11 @@
 <!-- Blog Entries Column -->
 <div class="col-md-8">
-  <% @classifications.each do |classification| %>
-      <%= content_tag :h2, link_to(classification.name, classification) -%>
+  <% @ideas.each do |idea| %>
+      <%= content_tag :h2, link_to(idea.name, idea) -%>
   <p class="lead">
-    Por <a href="index.php">RoR</a>
+    Por <a href="#"><%= idea.user.email -%></a>
   </p>
-  <p><span class="glyphicon glyphicon-time"></span> Postado <%=l classification.created_at, format: :basic  -%> </p>
+  <p><span class="glyphicon glyphicon-time"></span> Postado <%=l idea.created_at, format: :basic  -%> </p>
   <hr>
   <!--
   <img class="img-responsive" src="http://lorempixel.com/900/300/technics/Apply/" alt="">
