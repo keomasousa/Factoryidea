@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :classifications
   devise_for :users
   namespace :admin do
+    root 'classifications#index'
     resources :classifications
   end
   # The priority is based upon order of creation: first created -> highest priority.

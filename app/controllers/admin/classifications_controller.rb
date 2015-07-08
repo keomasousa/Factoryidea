@@ -1,4 +1,4 @@
-class Admin::ClassificationsController < ApplicationController
+class Admin::ClassificationsController < AdminController
   before_action :set_admin_classification, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/classifications
