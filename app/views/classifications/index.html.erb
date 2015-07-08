@@ -6,7 +6,6 @@
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
     </tr>
@@ -14,10 +13,8 @@
   <tbody>
     <% @classifications.each do |classification| %>
       <tr>
-        <td><%= link_to classification.id, classification_path(classification) %></td>
         <td><%= classification.name %></td>
         <td><%=l classification.created_at, format: :basic %></td>
-
       </tr>
     <% end %>
   </tbody>

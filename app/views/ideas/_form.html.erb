@@ -10,7 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+    <%= Classification.all.size -%>
+    <%= f.association :classification %>
       <div class="field">
         <%= f.input :name %><br>
         <!--<%= f.text_field :name %>-->
@@ -18,10 +19,6 @@
       <div class="field">
         <%= f.input :description, rows: 10 %><br>
         <!--<%= f.text_area :description, rows: 10 %>-->
-      </div>
-      <div class="field">
-        <%= f.input :classification_id%><br>
-        <!--<%= f.text_field :classification_id %>-->
       </div>
       <div class="field">
         <%= f.input :user_id %><br>
