@@ -32,7 +32,7 @@
     <%= bootstrap_flash %>
     <%= yield %>
 
-<%= render 'layouts/sidebar_site' -%>
+<%= render 'layouts/sidebar_site' unless %[classifications ideas devise/sessions devise/registrations].include?(controller_name) -%>
 
   </div>
   <!-- /.row -->
@@ -52,6 +52,8 @@
 
 </div>
 <!-- /.container -->
+
+<%= debug params %>
 
 <%= javascript_include_tag "application" %>
 </body>

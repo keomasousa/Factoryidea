@@ -27,7 +27,7 @@
   <strong>Média de Votos</strong>
   <%= HighScore.where(idea_id: @idea.id).average(:vote).to_i %>
 </p>
-
+<% if user_signed_in? %>
 <fieldset>
 	<legend>Votar</legend>
 	<%= simple_form_for HighScore.new, url: votar_na_ideia_path do |f| %>
@@ -40,6 +40,7 @@
 	<% end %>
 </fieldset>
 
+<% end %>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>
